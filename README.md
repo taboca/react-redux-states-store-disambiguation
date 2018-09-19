@@ -4,9 +4,9 @@ The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-rob
 
     Rule: Smart components are not allowed to have any logic except dispatching actions.
 
-## Within actions: what kinds of actions are possible? 
+## Within actions: what kinds of actions are possible?
 
-In the example by Tal, the component then does dispatch an action, so let's look at his example code:
+In the example by Tal, a component does call an action. Let's look at his example code:
 
 ```
 import _ from 'lodash';
