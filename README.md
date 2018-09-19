@@ -1,8 +1,6 @@
-# Understanding actions and the feedback cycle to feed React components using Redux 
+# Understanding actions and the feedback cycle to feed React components using Redux
 
-The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) makes a distinction between (dumb) Components and (smart) Containers, the first having no knowledge of Redux (relationship with the store update and state propagation) but the second does have.
-
-So, in theory, the smart components are the solution for serving a developer when it is time to make a their system to respond based on action from users or other side actions. However, in the flux architecture, these smart components code should not really incorporate the logic in it, according to Tal:
+The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) makes a distinction between (dumb) Components and (smart) Containers, the first having no knowledge of Redux (relationship with the store update and state propagation) but the second does have. Therefore, smart components are the solution for serving a developer when it is time to make a their system to respond based on action from users or other side actions. However, in the flux architecture, these smart components code should not really incorporate the logic in it, according to Tal:
 
     Rule: Smart components are not allowed to have any logic except dispatching actions.
 
