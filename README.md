@@ -6,7 +6,7 @@ The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-rob
 
 ## Within actions: what kinds of actions are possible?
 
-In the example by Tal, a component does call an action. Let's look at his example code:
+In the example by Tal, a component does call an action. Let's look at his example:
 
 ```
 import _ from 'lodash';
@@ -26,6 +26,6 @@ export function fetchTopics() {
 }
 ```
 
-You may notice that by the wording "except dispatching actions" may actually refer to multiple things inded related to the action. If we look at the above code, we will notice the the code call side functions to perform an asynchronous operation. If the result is good then we have a dispatch function being called, the action is really triggered.  
+You may notice that the above expression "except dispatching actions" may actually refer to multiple things happening related to the action. If we look at the above code, we will notice the the code call side functions to perform an asynchronous operation. If the result is good then we have a dispatch function being called, the action is really triggered.  
 
 In the Redux architecture the dispatch is a method for actually dispatching actions. So here we need to make a distinction and understand that the above example refers to an action in the general sense which embodies the command to start certain logic operations that will depend on external factors and may generate actions as response, thus enabling the store system to feedback the interface eventually when actions are processed by reducers as we will see.
