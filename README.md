@@ -1,4 +1,4 @@
-# How React visual components can be responsive to store changes and yet create new changes depending on user actions and other remote state actions
+# Understanding actions and the feedback cycle to feed React components using Redux 
 
 The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) makes a distinction between (dumb) Components and (smart) Containers, the first having no knowledge of Redux (relationship with the store update and state propagation) but the second does have.
 
