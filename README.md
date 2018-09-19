@@ -1,1 +1,33 @@
-# react-redux-states-store-disambiguation
+# How React visual components can be responsive to store changes and yet create new changes depending on user actions and other remote state actions
+
+The developer Tal [1](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) makes a distinction between (dumb) Components and (smart) Containers, the first having no knowledge of Redux (relationship with the store update and state propagation) but the second does have.
+
+So, in theory, the smart components are the solution for serving a developer when it is time to make a their system to respond based on action from users or other side actions. However, in the flux architecture, these smart components code should not really incorporate the logic in it, according to Tal:
+
+    Rule: Smart components are not allowed to have any logic except dispatching actions.
+
+## So actions can do what kinds of actions?
+
+In the example by Tal, the component then does dispatch an action, so let's look at his example code:
+
+```
+import _ from 'lodash';
+import * as types from './actionTypes';
+import redditService from '../../services/reddit';
+
+export function fetchTopics() {
+  return async(dispatch, getState) => {
+    try {
+      const subredditArray = await redditService.getDefaultSubreddits();
+      const topicsByUrl = _.keyBy(subredditArray, (subreddit) => subreddit.url);
+      dispatch({ type: types.TOPICS_FETCHED, topicsByUrl });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+}
+```
+
+You may notice that by the wording "except dispatching actions" may actually refer to multiple things inded related to the action. If we look at the above code, we will notice the the code call side functions to perform an asynchronous operation. If the result is good then we have a dispatch function being called, the action is really triggered.  
+
+In the Redux architecture the dispatch is a method for actually dispatching actions. So here we need to make a distinction and understand that the above example refers to an action in the general sense which embodies the command to start certain logic operations that will depend on external factors and may generate actions as response, thus enabling the store system to feedback the interface eventually when actions are processed by reducers as we will see.
